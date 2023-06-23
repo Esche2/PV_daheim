@@ -122,7 +122,7 @@ services:
   
   sungather:
     image: michbeck100/sungather:latest
-    container_name: sungather
+    container_name: sungather2
     restart: unless-stopped
     volumes:
       - /pv_anlage/pv2/PV_daheim/sungather/config.yaml:/config/config2.yaml

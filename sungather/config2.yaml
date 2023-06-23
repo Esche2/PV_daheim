@@ -41,19 +41,19 @@ exports:
     org: "Default"                          # [Required] InfluxDB Organization (for influxdb v1.8x this will be ignored)
     bucket: "monitoring"                    # [Required] InfluxDB Bucket (for influxdb v1.8x this is the database name)
     measurements:                           # [Required] Registers to publish to bucket
-      - point: "power"
+      - point: "power2"
         register: daily_power_yields
-      - point: "power"
+      - point: "power2"
         register: total_active_power
-      - point: "power"
+      - point: "power2"
         register: load_power
-      - point: "power"
+      - point: "power2"
         register: meter_power
-      - point: "power"
+      - point: "power2"
         register: export_to_grid
-      - point: "power"
+      - point: "power2"
         register: import_from_grid
-      - point: "temp"
+      - point: "temp2"
         register: internal_temperature
 
   # Publish Registers to MQTT / Home Assistant
@@ -66,63 +66,63 @@ exports:
     # password:                             # [Optional] Password is MQTT server requires it
     homeassistant: True                     # [Optional] Default False, Publish discovery and sensors for HomeAssistant
     ha_sensors:                             # [Optional] / [Required] ha_discovery: True, Topics to enable discovery for HA
-      - name: "Daily Generation"
+      - name: "Daily Generation2"
         sensor_type: sensor
         register: daily_power_yields
         dev_class: energy
         state_class: total_increasing
-      - name: "Active Power"
+      - name: "Active Power2"
         sensor_type: sensor
         register: total_active_power
         dev_class: power
         state_class: measurement
-      - name: "Load Power"
+      - name: "Load Power2"
         sensor_type: sensor
         register: load_power
         dev_class: power
         state_class: measurement
-      - name: "Meter Power"
+      - name: "Meter Power2"
         sensor_type: sensor
         register: meter_power
         dev_class: power
         state_class: measurement
-      - name: "Export to Grid"
+      - name: "Export to Grid2"
         sensor_type: sensor
         register: export_to_grid
         dev_class: power
         state_class: measurement
-      - name: "Import from Grid"
+      - name: "Import from Grid2"
         sensor_type: sensor
         register: import_from_grid
         dev_class: power
         state_class: measurement
-      - name: "Temperature"
+      - name: "Temperature2"
         sensor_type: sensor
         register: internal_temperature
         dev_class: temperature
         state_class: measurement
-      - name: "Power State"
+      - name: "Power State2"
         sensor_type: binary_sensor
         register: run_state
         dev_class: running
         payload_on: "ON"
         payload_off: "OFF"
     topics:
-      - topic: solar/power/load_power_hybrid
+      - topic: solar/power/load_power_hybrid2
         register: load_power_hybrid
-      - topic: solar/power/total_dc_power
+      - topic: solar/power/total_dc_power2
         register: total_dc_power
-      - topic: solar/power/export_power_hybrid
+      - topic: solar/power/export_power_hybrid2
         register: export_power_hybrid
-      - topic: solar/power/current/phase_a
+      - topic: solar/power/current/phase_a2
         register: phase_a_current
-      - topic: solar/power/current/phase_b
+      - topic: solar/power/current/phase_b2
         register: phase_b_current
-      - topic: solar/power/current/phase_c
+      - topic: solar/power/current/phase_c2
         register: phase_c_current
-      - topic: solar/battery/battery_power
+      - topic: solar/battery/battery_power2
         register: battery_power
-      - topic: solar/battery/battery_level
+      - topic: solar/battery/battery_level2
         register: battery_level
 
   # Publish Registers to PVOutput

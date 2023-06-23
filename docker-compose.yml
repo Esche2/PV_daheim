@@ -120,12 +120,12 @@ services:
       - "traefik.http.services.sungather.loadbalancer.server.port=8080"
 
   
-  sungather:
+  sungather2:
     image: michbeck100/sungather:latest
     container_name: sungather2
     restart: unless-stopped
     volumes:
-      - /pv_anlage/pv2/PV_daheim/sungather/config.yaml:/config/config2.yaml
+      - /pv_anlage/pv2/PV_daheim/sungather/config2.yaml:/config/config2.yaml
     environment:
       - TZ=Europe/Berlin
     ports:

@@ -119,6 +119,26 @@ services:
       - "traefik.http.routers.sungather.rule=Host(`sungather.${HOST}`)"
       - "traefik.http.services.sungather.loadbalancer.server.port=8080"
 
+  
+  sungather:
+    image: michbeck100/sungather:latest
+    container_name: sungather
+    restart: unless-stopped
+    volumes:
+      - /pv_anlage/pv2/PV_daheim/sungather/config.yaml:/config/config2.yaml
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - "8079:8079"
+    depends_on:
+      - modbus-proxy
+    networks:
+      - monitoring
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sungather.rule=Host(`sungather.${HOST}`)"
+      - "traefik.http.services.sungather.loadbalancer.server.port=8079"
+
   mosquitto:
     image: eclipse-mosquitto
     container_name: mosquitto
